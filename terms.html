@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Regulamin — Aria Noteflow</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #07111f; color: #edf2f8; line-height: 1.65; }
+    main { max-width: 840px; margin: auto; padding: 40px 22px 64px; }
+    .language-switcher { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
+    .language-switcher button { cursor: pointer; border: 1px solid #526987; border-radius: 999px; padding: 9px 16px; background: #0e1c2f; color: #edf2f8; font: inherit; font-weight: 700; }
+    .language-switcher button[aria-pressed="true"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+    [hidden] { display: none !important; }
+    h1, h2 { color: #f4cf78; line-height: 1.25; }
+    h1 { margin-bottom: 4px; }
+    h2 { margin-top: 32px; }
+    a { color: #ffd98b; }
+    .meta, .note { color: #b7c3d1; }
+    .card { background: #0e1c2f; border: 1px solid #263a54; border-radius: 16px; padding: 20px; }
+    hr { border: 0; border-top: 1px solid #263a54; margin: 48px 0; }
+    @media (prefers-color-scheme: light) {
+      body { background: #f7f9fc; color: #172033; }
+      h1, h2, a { color: #76510b; }
+      .meta, .note { color: #526073; }
+      .card { background: #fff; border-color: #d8dee8; }
+      .language-switcher button { background: #fff; color: #172033; border-color: #9aa7b8; }
+      .language-switcher button[aria-pressed="true"] { background: #76510b; border-color: #76510b; color: #fff; }
+      hr { border-color: #d8dee8; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <nav class="language-switcher" aria-label="Wybór języka / Language selection">
+    <button id="language-pl" type="button" aria-pressed="true">Polski</button>
+    <button id="language-en" type="button" aria-pressed="false">English</button>
+  </nav>
+
+  <article id="terms-pl" lang="pl">
+    <h1>Regulamin aplikacji Aria Noteflow</h1>
+    <p class="meta">Ostatnia aktualizacja: 22 sierpnia 2026 r.</p>
+    <p class="card">Aria Noteflow to lokalny czytnik nut i organizator biblioteki muzycznej na Androida. Korzystając z aplikacji, akceptujesz poniższe warunki.</p>
+    <p class="note"><strong>W przypadku rozbieżności między wersjami językowymi wiążąca i rozstrzygająca jest wersja polska.</strong></p>
+
+    <h2>1. Deweloper i kontakt</h2>
+    <p>Aplikację Aria Noteflow (identyfikator pakietu <code>com.DDK.Aria</code>) udostępnia Michał Dudko / DDK. Kontakt: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Zasady przetwarzania danych opisuje osobna <a href="https://michaldudko.github.io/aria-privacy/">polityka prywatności</a>.</p>
+
+    <h2>2. Akceptacja regulaminu</h2>
+    <p>Instalując lub używając aplikacji, użytkownik potwierdza, że zapoznał się z regulaminem i go akceptuje. Jeśli użytkownik nie akceptuje warunków, nie powinien korzystać z aplikacji.</p>
+
+    <h2>3. Charakter aplikacji</h2>
+    <p>Aria Noteflow działa lokalnie na urządzeniu: przechowuje, wyświetla i organizuje pliki nutowe, dokumenty, obrazy i audio wybrane lub utworzone przez użytkownika. Aplikacja nie oferuje konta, sklepu z nutami ani usługi udostępniania treści innym użytkownikom.</p>
+
+    <h2>4. Treści użytkownika i prawa autorskie</h2>
+    <p>Za legalność treści importowanych do aplikacji (nut, skanów, nagrań, dokumentów) odpowiada wyłącznie użytkownik. Aplikacja jest narzędziem do organizacji własnych lub prawidłowo licencjonowanych materiałów i nie może być używana do kopiowania, udostępniania ani rozpowszechniania cudzych utworów bez wymaganych praw. Deweloper nie ma wglądu w treści przechowywane lokalnie na urządzeniu użytkownika i nie ponosi odpowiedzialności za naruszenia praw autorskich popełnione przez użytkownika.</p>
+
+    <h2>5. Kopie zapasowe i dostawcy zewnętrzni</h2>
+    <p>Funkcje eksportu, importu i synchronizacji kopii zapasowej działają wyłącznie z inicjatywy użytkownika i mogą korzystać z dostawcy pamięci wybranego przez użytkownika w systemowym selektorze plików (np. Dysk Google, Dropbox, OneDrive). Taki dostawca działa na własnych warunkach i własnej polityce prywatności, niezależnych od Aria Noteflow. Użytkownik odpowiada za bezpieczeństwo i poprawność miejsca przechowywania własnych kopii.</p>
+
+    <h2>6. Wsparcie dla twórcy</h2>
+    <p>Aplikacja może zawierać dobrowolny odnośnik do serwisu Buy Me a Coffee, umożliwiający wsparcie finansowe twórcy. Wsparcie jest w pełni opcjonalne, nie odblokowuje dodatkowych funkcji i nie jest wymagane do korzystania z aplikacji. Płatność obsługuje zewnętrzny serwis na własnych warunkach; Aria Noteflow nie przetwarza ani nie przechowuje danych płatniczych.</p>
+
+    <h2>7. Ograniczenie odpowiedzialności</h2>
+    <p>Aplikacja jest dostarczana w stanie „tak jak jest”, bez gwarancji nieprzerwanego działania, bezbłędności ani przydatności do konkretnego celu. Deweloper nie odpowiada za utratę danych, w tym plików nutowych, adnotacji, ustawień i kopii zapasowych, wynikającą z usterki urządzenia, systemu operacyjnego, dostawcy pamięci zewnętrznej lub błędu użytkownika. Zalecane jest regularne wykonywanie kopii zapasowych funkcją dostępną w aplikacji.</p>
+
+    <h2>8. Wymagane funkcje sprzętowe</h2>
+    <p>Niektóre funkcje (skanowanie dokumentów, gesty twarzy, pedały Bluetooth/USB, urządzenia MIDI) wymagają odpowiedniego sprzętu i uprawnień systemowych oraz są opcjonalne. Brak sprzętu lub odmowa uprawnienia nie blokuje działania pozostałych funkcji aplikacji.</p>
+
+    <h2>9. Zmiany aplikacji i regulaminu</h2>
+    <p>Deweloper może aktualizować aplikację oraz niniejszy regulamin wraz z rozwojem funkcji lub zmianą wymogów prawnych. Aktualna wersja regulaminu jest publikowana pod tym samym adresem, wraz z datą aktualizacji. Dalsze korzystanie z aplikacji po opublikowaniu zmian oznacza ich akceptację.</p>
+
+    <h2>10. Prawo właściwe</h2>
+    <p>Regulamin podlega prawu polskiemu. Spory będą rozstrzygane zgodnie z powszechnie obowiązującymi przepisami, w szczególności ochrony konsumentów, jeśli mają zastosowanie do użytkownika.</p>
+  </article>
+
+  <article id="terms-en" lang="en" hidden>
+    <h1>Aria Noteflow Terms of Use</h1>
+    <p class="meta">Last updated: August 22, 2026</p>
+    <p class="card">Aria Noteflow is a local sheet-music reader and music-library organizer for Android. By using the app, you accept the terms below.</p>
+    <p class="note"><strong>If language versions differ, the Polish version is binding and controlling.</strong></p>
+
+    <h2>1. Developer and contact</h2>
+    <p>Aria Noteflow (package identifier <code>com.DDK.Aria</code>) is provided by Michał Dudko / DDK. Contact: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Data handling is described in a separate <a href="https://michaldudko.github.io/aria-privacy/">privacy policy</a>.</p>
+
+    <h2>2. Acceptance of these terms</h2>
+    <p>By installing or using the app, you confirm that you have read and accept these terms. If you do not accept them, please do not use the app.</p>
+
+    <h2>3. Nature of the app</h2>
+    <p>Aria Noteflow runs locally on the device: it stores, displays, and organizes sheet music, documents, images, and audio selected or created by the user. The app provides no account, no sheet-music store, and no service for sharing content with other users.</p>
+
+    <h2>4. User content and copyright</h2>
+    <p>The user is solely responsible for the legality of content imported into the app (sheet music, scans, recordings, documents). The app is a tool for organizing the user's own or properly licensed materials, and must not be used to copy, share, or distribute other people's works without the required rights. The developer has no visibility into content stored locally on the user's device and is not responsible for copyright infringement committed by the user.</p>
+
+    <h2>5. Backups and third-party providers</h2>
+    <p>Backup export, import, and synchronization occur only at the user's request and may use a storage provider chosen by the user through the system document picker (e.g. Google Drive, Dropbox, OneDrive). Such a provider operates under its own terms and privacy policy, independent of Aria Noteflow. The user is responsible for the security and correctness of where their own backups are stored.</p>
+
+    <h2>6. Supporting the developer</h2>
+    <p>The app may include an optional link to Buy Me a Coffee, allowing users to financially support the developer. Support is entirely optional, does not unlock additional features, and is not required to use the app. Payment is handled by an external service under its own terms; Aria Noteflow does not process or store payment data.</p>
+
+    <h2>7. Limitation of liability</h2>
+    <p>The app is provided "as is", without warranty of uninterrupted operation, error-free performance, or fitness for a particular purpose. The developer is not liable for loss of data, including sheet music files, annotations, settings, and backups, resulting from device failure, operating system issues, an external storage provider, or user error. Regular use of the app's built-in backup feature is recommended.</p>
+
+    <h2>8. Required hardware features</h2>
+    <p>Some features (document scanning, face gestures, Bluetooth/USB pedals, MIDI devices) require corresponding hardware and system permissions and are optional. Missing hardware or a declined permission does not block the rest of the app's functionality.</p>
+
+    <h2>9. Changes to the app and these terms</h2>
+    <p>The developer may update the app and these terms as features evolve or legal requirements change. The current version of these terms is published at the same address, together with its update date. Continued use of the app after changes are published constitutes acceptance of them.</p>
+
+    <h2>10. Governing law</h2>
+    <p>These terms are governed by Polish law. Disputes will be resolved under generally applicable law, including consumer-protection law where it applies to the user.</p>
+  </article>
+</main>
+<script>
+  (() => {
+    const polishTerms = document.getElementById('terms-pl');
+    const englishTerms = document.getElementById('terms-en');
+    const polishButton = document.getElementById('language-pl');
+    const englishButton = document.getElementById('language-en');
+
+    function selectLanguage(language) {
+      const english = language === 'en';
+      polishTerms.hidden = english;
+      englishTerms.hidden = !english;
+      polishButton.setAttribute('aria-pressed', String(!english));
+      englishButton.setAttribute('aria-pressed', String(english));
+      document.documentElement.lang = english ? 'en' : 'pl';
+      document.title = english
+        ? 'Terms of Use — Aria Noteflow'
+        : 'Regulamin — Aria Noteflow';
+    }
+
+    polishButton.addEventListener('click', () => selectLanguage('pl'));
+    englishButton.addEventListener('click', () => selectLanguage('en'));
+  })();
+</script>
+</body>
+</html>
