@@ -4,149 +4,232 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Polityka prywatności — Aria Noteflow</title>
+  <title>Aria Noteflow</title>
+  <meta name="description" content="Aria Noteflow — profesjonalny czytnik nut i biblioteka muzyczna na Androida.">
   <style>
     :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
     body { margin: 0; background: #07111f; color: #edf2f8; line-height: 1.65; }
-    main { max-width: 840px; margin: auto; padding: 40px 22px 64px; }
-    .language-switcher { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
-    .language-switcher button { cursor: pointer; border: 1px solid #526987; border-radius: 999px; padding: 9px 16px; background: #0e1c2f; color: #edf2f8; font: inherit; font-weight: 700; }
-    .language-switcher button[aria-pressed="true"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+    main { max-width: 960px; margin: auto; padding: 0 22px 64px; }
     [hidden] { display: none !important; }
     h1, h2 { color: #f4cf78; line-height: 1.25; }
     h1 { margin-bottom: 4px; }
-    h2 { margin-top: 32px; }
+    h2 { margin-top: 8px; }
     a { color: #ffd98b; }
     .meta, .note { color: #b7c3d1; }
     .card { background: #0e1c2f; border: 1px solid #263a54; border-radius: 16px; padding: 20px; }
     hr { border: 0; border-top: 1px solid #263a54; margin: 48px 0; }
+
+    .site-header {
+      max-width: 960px; margin: 0 auto; padding: 22px 22px 0;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px;
+    }
+    .brand { color: #f4cf78; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-right: auto; }
+    .site-nav a {
+      text-decoration: none; color: #edf2f8; font-weight: 600; font-size: 0.95rem;
+      padding: 8px 14px; border-radius: 999px; border: 1px solid #263a54;
+    }
+    .site-nav a[aria-current="page"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+    .language-switcher { display: flex; gap: 8px; }
+    .language-switcher button {
+      cursor: pointer; border: 1px solid #526987; border-radius: 999px; padding: 8px 14px;
+      background: #0e1c2f; color: #edf2f8; font: inherit; font-weight: 700;
+    }
+    .language-switcher button[aria-pressed="true"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+
+    .hero { padding: 40px 0 8px; text-align: center; }
+    .hero .tagline { font-size: 1.2rem; color: #ffd98b; margin: 6px 0 20px; font-weight: 600; }
+    .hero p { max-width: 640px; margin: 0 auto; font-size: 1.05rem; }
+
+    .features {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-top: 28px;
+    }
+    .feature-card h3 { margin: 0 0 8px; color: #ffd98b; font-size: 1.05rem; }
+    .feature-card p { margin: 0; }
+
+    .audience { margin-top: 40px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; justify-content: center; }
+    .cta-row a.button {
+      text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px;
+      border: 1px solid #526987; color: #edf2f8;
+    }
+    .cta-row a.button.primary { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+
+    footer { margin-top: 56px; color: #b7c3d1; text-align: center; }
+    footer .footer-links { display: flex; gap: 18px; justify-content: center; margin-bottom: 10px; flex-wrap: wrap; }
+
     @media (prefers-color-scheme: light) {
       body { background: #f7f9fc; color: #172033; }
-      h1, h2, a { color: #76510b; }
-      .meta, .note { color: #526073; }
+      h1, h2, a, .brand, .hero .tagline, .feature-card h3 { color: #76510b; }
+      .meta, .note, footer { color: #526073; }
       .card { background: #fff; border-color: #d8dee8; }
+      hr { border-color: #d8dee8; }
+      .site-nav a { color: #172033; border-color: #9aa7b8; }
+      .site-nav a[aria-current="page"] { background: #76510b; border-color: #76510b; color: #fff; }
       .language-switcher button { background: #fff; color: #172033; border-color: #9aa7b8; }
       .language-switcher button[aria-pressed="true"] { background: #76510b; border-color: #76510b; color: #fff; }
-      hr { border-color: #d8dee8; }
+      .cta-row a.button { color: #172033; border-color: #9aa7b8; }
+      .cta-row a.button.primary { background: #76510b; border-color: #76510b; color: #fff; }
     }
   </style>
 </head>
 <body>
-<main>
-  <nav class="language-switcher" aria-label="Wybór języka / Language selection">
+<header class="site-header">
+  <a class="brand" href="index.html">Aria Noteflow</a>
+  <nav class="site-nav" aria-label="Nawigacja strony / Site navigation">
+    <a href="index.html" aria-current="page">
+      <span data-lang="pl">Start</span><span data-lang="en" hidden>Home</span>
+    </a>
+    <a href="privacy.html">
+      <span data-lang="pl">Polityka prywatności</span><span data-lang="en" hidden>Privacy Policy</span>
+    </a>
+    <a href="terms.html">
+      <span data-lang="pl">Regulamin</span><span data-lang="en" hidden>Terms of Use</span>
+    </a>
+  </nav>
+  <div class="language-switcher" aria-label="Wybór języka / Language selection">
     <button id="language-pl" type="button" aria-pressed="true">Polski</button>
     <button id="language-en" type="button" aria-pressed="false">English</button>
-  </nav>
+  </div>
+</header>
 
-  <article id="policy-pl" lang="pl">
-    <h1>Polityka prywatności Aria Noteflow</h1>
-    <p class="meta">Ostatnia aktualizacja: 14 sierpnia 2026 r.</p>
-    <p class="card">Aria Noteflow jest lokalnym czytnikiem nut i organizatorem bibliotek muzycznych. Aplikacja nie wymaga konta, nie wyświetla reklam i nie wysyła plików nutowych ani adnotacji na serwery dewelopera.</p>
-    <p class="note"><strong>W przypadku rozbieżności między wersjami językowymi wiążąca i rozstrzygająca jest wersja polska.</strong></p>
+<main>
+  <article data-lang="pl" lang="pl">
+    <div class="hero">
+      <h1>Aria Noteflow</h1>
+      <p class="tagline">Profesjonalny czytnik nut i biblioteka muzyczna na Androida</p>
+      <p>Aria Noteflow porządkuje Twoje nuty, teksty i akordy w jednym miejscu i pozwala wygodnie czytać je na scenie — z pedałem, bez dotykania ekranu, w dowolnym trybie strony. Aplikacja działa lokalnie na urządzeniu: bez konta, bez reklam i bez wysyłania Twoich nut do chmury.</p>
+    </div>
 
-    <h2>1. Administrator i kontakt</h2>
-    <p>Aplikację Aria Noteflow (identyfikator pakietu <code>com.DDK.Aria</code>) udostępnia Michał Dudko / DDK. W sprawach prywatności można pisać na <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>.</p>
+    <h2>Co potrafi Aria Noteflow</h2>
+    <div class="features">
+      <div class="card feature-card">
+        <h3>Biblioteka i organizacja</h3>
+        <p>Importuj PDF-y, skany, zdjęcia, pliki tekstowe, akordy i nuty cyfrowe. Grupuj utwory w setlisty na koncert i kolekcje do ćwiczeń, z wyszukiwaniem po tytule, wykonawcy, tonacji czy gatunku.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Czytanie bez rąk</h3>
+        <p>Zmieniaj strony pedałem Bluetooth lub USB, urządzeniem MIDI albo gestem twarzy — uśmiechem lub otwarciem ust. Ręce zostają na instrumencie.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Adnotacje na żywo</h3>
+        <p>Zaznaczaj, podkreślaj, dopisuj palcówki i uwagi wprost na partyturze. Zmiany zapisują się automatycznie i wracają przy kolejnym otwarciu utworu.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Tryb sceniczny</h3>
+        <p>Odtwarzacz setlisty prowadzi Cię przez cały koncert w ustalonej kolejności, z własną orientacją ekranu i płynnym przechodzeniem między utworami.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Metronom i podkłady</h3>
+        <p>Wbudowany metronom z kilkoma metrum i trybami akcentu oraz możliwość podpięcia podkładu audio z pętlą A–B do dowolnego utworu.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Kopia zapasowa</h3>
+        <p>Eksportuj całą bibliotekę do jednego pliku i przywróć ją na innym urządzeniu albo zsynchronizuj bez utraty danych.</p>
+      </div>
+    </div>
 
-    <h2>2. Dane przechowywane lokalnie</h2>
-    <p>Aplikacja zapisuje na urządzeniu treści wybrane lub utworzone przez użytkownika, w szczególności pliki nutowe, dokumenty, obrazy, pliki audio i MIDI, tytuły i metadane utworów, setlisty, kolekcje, adnotacje, zakładki oraz ustawienia. Dane te służą wyłącznie do działania funkcji aplikacji i nie są automatycznie przesyłane deweloperowi.</p>
+    <div class="audience card">
+      <h2>Dla kogo</h2>
+      <p>Aria Noteflow powstaje z myślą o muzykach grających na żywo — solistach, zespołach, chórach, orkiestrach kameralnych i nauczycielach. Interfejs jest zaprojektowany tak, by pozostawał czytelny również dla starszych użytkowników: duży, wyraźny tekst, prosty układ i wysoki kontrast.</p>
+    </div>
 
-    <h2>3. Uprawnienia i funkcje opcjonalne</h2>
-    <ul>
-      <li><strong>Pliki i dokumenty:</strong> dostęp jest ograniczony do plików i lokalizacji wybranych przez użytkownika. Aplikacja może utworzyć lokalne kopie importowanych materiałów.</li>
-      <li><strong>Kamera:</strong> używana do skanowania dokumentów oraz opcjonalnego sterowania stronami gestami twarzy. Obrazy i klatki kamery są analizowane na urządzeniu i nie są wysyłane deweloperowi.</li>
-      <li><strong>Mikrofon:</strong> używany wyłącznie po uruchomieniu wyszukiwania głosowego. Aplikacja nie zapisuje nagrania. Systemowa usługa rozpoznawania mowy może przetwarzać dźwięk lokalnie albo przesłać go do dostawcy usługi — zależnie od urządzenia, ustawień i dostępnego silnika rozpoznawania.</li>
-      <li><strong>Bluetooth i urządzenia w pobliżu:</strong> używane do łączenia kontrolerów przewracania stron i urządzeń MIDI. Nazwa, adres i stan urządzenia mogą być odczytywane lokalnie w celu zestawienia połączenia.</li>
-      <li><strong>Lokalizacja na starszych wersjach Androida:</strong> system może wymagać zgody lokalizacyjnej do wyszukiwania urządzeń Bluetooth Low Energy. Aria Noteflow nie odczytuje, nie zapisuje ani nie przesyła położenia użytkownika.</li>
-    </ul>
+    <div class="card" style="margin-top: 16px;">
+      <h2>Twoje nuty zostają Twoje</h2>
+      <p>Aria Noteflow działa lokalnie na urządzeniu, nie wymaga konta i nie wysyła plików ani adnotacji na serwery dewelopera. Szczegóły opisuje <a href="privacy.html">Polityka prywatności</a>.</p>
+    </div>
 
-    <h2>4. Kopie zapasowe i dostawcy plików</h2>
-    <p>Eksport, udostępnienie i synchronizacja kopii są wykonywane wyłącznie z inicjatywy użytkownika. Jeśli użytkownik wybierze Dysk Google, Dropbox, OneDrive albo innego dostawcę dostępnego w systemowym selektorze plików, dane są przekazywane temu dostawcy zgodnie z jego ustawieniami i polityką prywatności. Deweloper Aria Noteflow nie otrzymuje tych plików. Wyeksportowane kopie nie są dodatkowo szyfrowane przez Aria Noteflow, dlatego użytkownik powinien zabezpieczyć miejsce ich przechowywania.</p>
-
-    <h2>5. Usługi i biblioteki zewnętrzne</h2>
-    <p>Aplikacja korzysta z Google ML Kit do lokalnej analizy obrazu, między innymi wykrywania twarzy i skanowania dokumentów. Dane wejściowe, takie jak obrazy i klatki kamery, są przetwarzane na urządzeniu. ML Kit może jednak przekazywać Google techniczne informacje o urządzeniu i aplikacji, identyfikator instalacji, informacje o wersji funkcji, zdarzenia użycia, wydajność i kody błędów w celach diagnostycznych i analitycznych. Dane są szyfrowane podczas przesyłania. Więcej informacji: <a href="https://developers.google.com/ml-kit/android-data-disclosure">ujawnienia danych ML Kit</a> i <a href="https://policies.google.com/privacy">polityka prywatności Google</a>.</p>
-    <p>Rozpoznawanie mowy realizuje usługa systemowa wybrana na urządzeniu. Jej przetwarzanie i retencja podlegają zasadom dostawcy tej usługi.</p>
-
-    <h2>6. Reklamy, sprzedaż danych i konta</h2>
-    <p>Aria Noteflow nie zawiera reklam, nie sprzedaje danych użytkowników i nie tworzy profili reklamowych. Aplikacja nie oferuje kont użytkowników ani logowania do usługi dewelopera.</p>
-
-    <h2>7. Bezpieczeństwo</h2>
-    <p>Dane aplikacji są przechowywane w obszarze chronionym przez system Android, a dostęp do zewnętrznych dokumentów odbywa się przez systemowe mechanizmy uprawnień. Dane przesyłane przez opisane usługi zewnętrzne korzystają z ich zabezpieczeń transmisji. Żaden system nie gwarantuje jednak całkowitego bezpieczeństwa urządzenia ani plików zapisanych przez użytkownika poza aplikacją.</p>
-
-    <h2>8. Retencja i usuwanie</h2>
-    <p>Dane lokalne pozostają na urządzeniu do chwili usunięcia ich w aplikacji, wyczyszczenia danych aplikacji w ustawieniach Androida albo odinstalowania aplikacji. Kopie i pliki wyeksportowane poza aplikację należy usunąć osobno w miejscu, w którym zostały zapisane. Aria Noteflow nie posiada serwera z kontami użytkowników, dlatego deweloper nie przechowuje kopii biblioteki, którą mógłby usunąć na żądanie. Retencją technicznych danych ML Kit i systemowej usługi rozpoznawania mowy zarządzają ich dostawcy.</p>
-
-    <h2>9. Dzieci</h2>
-    <p>Aria Noteflow jest narzędziem muzycznym dla ogólnego grona użytkowników i nie jest projektowana ani promowana jako aplikacja skierowana głównie do dzieci. Aplikacja nie gromadzi świadomie danych osobowych dzieci.</p>
-
-    <h2>10. Zmiany polityki</h2>
-    <p>Polityka może być aktualizowana wraz ze zmianami funkcji aplikacji lub wymagań prawnych. Aktualna wersja będzie publikowana pod tym samym adresem, wraz z datą aktualizacji.</p>
+    <div class="cta-row">
+      <a class="button primary" href="privacy.html">Polityka prywatności</a>
+      <a class="button" href="terms.html">Regulamin</a>
+    </div>
   </article>
 
-  <article id="policy-en" lang="en" hidden>
-    <h1>Aria Noteflow Privacy Policy</h1>
-    <p class="meta">Last updated: August 14, 2026</p>
-    <p class="card">Aria Noteflow is a local sheet-music reader and music-library organizer. The app requires no account, displays no advertising, and does not upload sheet-music files or annotations to the developer's servers.</p>
-    <p class="note"><strong>If language versions differ, the Polish version is binding and controlling.</strong></p>
+  <article data-lang="en" lang="en" hidden>
+    <div class="hero">
+      <h1>Aria Noteflow</h1>
+      <p class="tagline">A professional sheet-music reader and music library for Android</p>
+      <p>Aria Noteflow keeps your sheet music, lyrics, and chords organized in one place and lets you read them comfortably on stage — with a pedal, without touching the screen, in whichever page mode you prefer. The app runs locally on the device: no account, no ads, and your sheet music is never uploaded to the cloud.</p>
+    </div>
 
-    <h2>1. Developer and contact</h2>
-    <p>Aria Noteflow (package identifier <code>com.DDK.Aria</code>) is provided by Michał Dudko / DDK. Privacy inquiries may be sent to <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>.</p>
+    <h2>What Aria Noteflow can do</h2>
+    <div class="features">
+      <div class="card feature-card">
+        <h3>Library and organization</h3>
+        <p>Import PDFs, scans, photos, text files, chord sheets, and digital scores. Group songs into setlists for a gig and collections for practice, with search by title, performer, key, or genre.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Hands-free reading</h3>
+        <p>Turn pages with a Bluetooth or USB pedal, a MIDI device, or a face gesture — a smile or opening your mouth. Your hands stay on the instrument.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Live annotations</h3>
+        <p>Highlight, underline, and write fingerings or notes straight onto the score. Changes save automatically and are there the next time you open the song.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Stage mode</h3>
+        <p>The setlist player takes you through an entire show in the planned order, with its own screen orientation and smooth transitions between songs.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Metronome and backing tracks</h3>
+        <p>A built-in metronome with several time signatures and accent modes, plus the option to attach a backing track with an A–B loop to any song.</p>
+      </div>
+      <div class="card feature-card">
+        <h3>Backup</h3>
+        <p>Export your whole library to a single file and restore it on another device, or sync it without losing data.</p>
+      </div>
+    </div>
 
-    <h2>2. Data stored locally</h2>
-    <p>The app stores content selected or created by the user on the device, including sheet music, documents, images, audio and MIDI files, song titles and metadata, setlists, collections, annotations, bookmarks, and settings. This data is used only to provide app functionality and is not automatically sent to the developer.</p>
+    <div class="audience card">
+      <h2>Who it's for</h2>
+      <p>Aria Noteflow is built for musicians who play live — soloists, bands, choirs, chamber ensembles, and teachers. The interface is designed to stay legible for older users too: large, clear text, a simple layout, and high contrast.</p>
+    </div>
 
-    <h2>3. Permissions and optional features</h2>
-    <ul>
-      <li><strong>Files and documents:</strong> access is limited to files and locations selected by the user. The app may create local copies of imported materials.</li>
-      <li><strong>Camera:</strong> used for document scanning and optional face-gesture page control. Camera images and frames are processed on the device and are not sent to the developer.</li>
-      <li><strong>Microphone:</strong> used only when the user starts voice search. The app does not save the recording. The system speech-recognition service may process audio on-device or send it to its provider, depending on the device, settings, and available recognition engine.</li>
-      <li><strong>Bluetooth and nearby devices:</strong> used to connect page-turn controllers and MIDI devices. A device name, address, and connection state may be read locally to establish the connection.</li>
-      <li><strong>Location on older Android versions:</strong> the operating system may require location permission to discover Bluetooth Low Energy devices. Aria Noteflow does not read, store, or transmit the user's location.</li>
-    </ul>
+    <div class="card" style="margin-top: 16px;">
+      <h2>Your sheet music stays yours</h2>
+      <p>Aria Noteflow runs locally on the device, requires no account, and does not send files or annotations to the developer's servers. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+    </div>
 
-    <h2>4. Backups and document providers</h2>
-    <p>Backup export, sharing, and synchronization occur only at the user's request. If the user chooses Google Drive, Dropbox, OneDrive, or another provider exposed by the system document picker, data is transferred to that provider under its settings and privacy policy. The Aria Noteflow developer does not receive these files. Exports are not independently encrypted by Aria Noteflow, so users should protect their chosen storage location.</p>
-
-    <h2>5. Third-party services and libraries</h2>
-    <p>The app uses Google ML Kit for on-device image analysis, including face detection and document scanning. Inputs such as images and camera frames are processed on-device. ML Kit may nevertheless send Google technical device and app information, an installation identifier, feature-version information, usage events, performance metrics, and error codes for diagnostics and analytics. Data is encrypted in transit. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit data disclosures</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
-    <p>Speech recognition is provided by the system recognition service selected on the device. Its processing and retention are governed by that service provider.</p>
-
-    <h2>6. Advertising, data sales, and accounts</h2>
-    <p>Aria Noteflow contains no advertising, does not sell user data, and does not create advertising profiles. The app provides no user account or sign-in to a developer-operated service.</p>
-
-    <h2>7. Security</h2>
-    <p>App data is stored in an Android-protected app area, and access to external documents uses system permission mechanisms. Data transmitted by the third-party services described above uses their transport protections. No system can guarantee complete security of a device or of files the user saves outside the app.</p>
-
-    <h2>8. Retention and deletion</h2>
-    <p>Local data remains on the device until it is deleted in the app, app storage is cleared in Android settings, or the app is uninstalled. Backups and files exported outside the app must be deleted separately from their destination. Aria Noteflow has no user-account server, so the developer keeps no library copy that could be deleted on request. Retention of ML Kit technical data and system speech-recognition data is controlled by their providers.</p>
-
-    <h2>9. Children</h2>
-    <p>Aria Noteflow is a music tool for a general audience and is not designed or marketed primarily to children. The app does not knowingly collect children's personal data.</p>
-
-    <h2>10. Changes</h2>
-    <p>This policy may be updated when app functionality or legal requirements change. The current version will remain available at the same address with its updated date.</p>
+    <div class="cta-row">
+      <a class="button primary" href="privacy.html">Privacy Policy</a>
+      <a class="button" href="terms.html">Terms of Use</a>
+    </div>
   </article>
+
+  <hr>
+  <footer>
+    <div class="footer-links">
+      <a href="privacy.html">
+        <span data-lang="pl">Polityka prywatności</span><span data-lang="en" hidden>Privacy Policy</span>
+      </a>
+      <a href="terms.html">
+        <span data-lang="pl">Regulamin</span><span data-lang="en" hidden>Terms of Use</span>
+      </a>
+      <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>
+    </div>
+    <span data-lang="pl">Aria Noteflow rozwija Michał Dudko.</span>
+    <span data-lang="en" hidden>Aria Noteflow is developed by Michał Dudko.</span>
+  </footer>
 </main>
 <script>
   (() => {
-    const polishPolicy = document.getElementById('policy-pl');
-    const englishPolicy = document.getElementById('policy-en');
-    const polishButton = document.getElementById('language-pl');
-    const englishButton = document.getElementById('language-en');
+    const plButton = document.getElementById('language-pl');
+    const enButton = document.getElementById('language-en');
 
     function selectLanguage(language) {
       const english = language === 'en';
-      polishPolicy.hidden = english;
-      englishPolicy.hidden = !english;
-      polishButton.setAttribute('aria-pressed', String(!english));
-      englishButton.setAttribute('aria-pressed', String(english));
+      document.querySelectorAll('[data-lang]').forEach((element) => {
+        element.hidden = element.dataset.lang !== language;
+      });
+      plButton.setAttribute('aria-pressed', String(!english));
+      enButton.setAttribute('aria-pressed', String(english));
       document.documentElement.lang = english ? 'en' : 'pl';
-      document.title = english
-        ? 'Privacy Policy — Aria Noteflow'
-        : 'Polityka prywatności — Aria Noteflow';
+      document.title = english ? 'Aria Noteflow' : 'Aria Noteflow';
     }
 
-    polishButton.addEventListener('click', () => selectLanguage('pl'));
-    englishButton.addEventListener('click', () => selectLanguage('en'));
+    plButton.addEventListener('click', () => selectLanguage('pl'));
+    enButton.addEventListener('click', () => selectLanguage('en'));
   })();
 </script>
 </body>

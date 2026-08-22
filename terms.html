@@ -8,10 +8,7 @@
   <style>
     :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
     body { margin: 0; background: #07111f; color: #edf2f8; line-height: 1.65; }
-    main { max-width: 840px; margin: auto; padding: 40px 22px 64px; }
-    .language-switcher { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
-    .language-switcher button { cursor: pointer; border: 1px solid #526987; border-radius: 999px; padding: 9px 16px; background: #0e1c2f; color: #edf2f8; font: inherit; font-weight: 700; }
-    .language-switcher button[aria-pressed="true"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+    main { max-width: 840px; margin: auto; padding: 0 22px 64px; }
     [hidden] { display: none !important; }
     h1, h2 { color: #f4cf78; line-height: 1.25; }
     h1 { margin-bottom: 4px; }
@@ -20,32 +17,66 @@
     .meta, .note { color: #b7c3d1; }
     .card { background: #0e1c2f; border: 1px solid #263a54; border-radius: 16px; padding: 20px; }
     hr { border: 0; border-top: 1px solid #263a54; margin: 48px 0; }
+
+    .site-header {
+      max-width: 840px; margin: 0 auto; padding: 22px 22px 24px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px;
+    }
+    .brand { color: #f4cf78; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-right: auto; }
+    .site-nav a {
+      text-decoration: none; color: #edf2f8; font-weight: 600; font-size: 0.95rem;
+      padding: 8px 14px; border-radius: 999px; border: 1px solid #263a54;
+    }
+    .site-nav a[aria-current="page"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+    .language-switcher { display: flex; gap: 8px; }
+    .language-switcher button {
+      cursor: pointer; border: 1px solid #526987; border-radius: 999px; padding: 8px 14px;
+      background: #0e1c2f; color: #edf2f8; font: inherit; font-weight: 700;
+    }
+    .language-switcher button[aria-pressed="true"] { background: #f4cf78; border-color: #f4cf78; color: #172033; }
+
     @media (prefers-color-scheme: light) {
       body { background: #f7f9fc; color: #172033; }
-      h1, h2, a { color: #76510b; }
+      h1, h2, a, .brand { color: #76510b; }
       .meta, .note { color: #526073; }
       .card { background: #fff; border-color: #d8dee8; }
+      hr { border-color: #d8dee8; }
+      .site-nav a { color: #172033; border-color: #9aa7b8; }
+      .site-nav a[aria-current="page"] { background: #76510b; border-color: #76510b; color: #fff; }
       .language-switcher button { background: #fff; color: #172033; border-color: #9aa7b8; }
       .language-switcher button[aria-pressed="true"] { background: #76510b; border-color: #76510b; color: #fff; }
-      hr { border-color: #d8dee8; }
     }
   </style>
 </head>
 <body>
-<main>
-  <nav class="language-switcher" aria-label="Wybór języka / Language selection">
+<header class="site-header">
+  <a class="brand" href="index.html">Aria Noteflow</a>
+  <nav class="site-nav" aria-label="Nawigacja strony / Site navigation">
+    <a href="index.html">
+      <span data-lang="pl">Start</span><span data-lang="en" hidden>Home</span>
+    </a>
+    <a href="privacy.html">
+      <span data-lang="pl">Polityka prywatności</span><span data-lang="en" hidden>Privacy Policy</span>
+    </a>
+    <a href="terms.html" aria-current="page">
+      <span data-lang="pl">Regulamin</span><span data-lang="en" hidden>Terms of Use</span>
+    </a>
+  </nav>
+  <div class="language-switcher" aria-label="Wybór języka / Language selection">
     <button id="language-pl" type="button" aria-pressed="true">Polski</button>
     <button id="language-en" type="button" aria-pressed="false">English</button>
-  </nav>
-
-  <article id="terms-pl" lang="pl">
+  </div>
+</header>
+<main>
+  <article data-lang="pl" lang="pl">
     <h1>Regulamin aplikacji Aria Noteflow</h1>
     <p class="meta">Ostatnia aktualizacja: 22 sierpnia 2026 r.</p>
     <p class="card">Aria Noteflow to lokalny czytnik nut i organizator biblioteki muzycznej na Androida. Korzystając z aplikacji, akceptujesz poniższe warunki.</p>
     <p class="note"><strong>W przypadku rozbieżności między wersjami językowymi wiążąca i rozstrzygająca jest wersja polska.</strong></p>
 
     <h2>1. Deweloper i kontakt</h2>
-    <p>Aplikację Aria Noteflow (identyfikator pakietu <code>com.DDK.Aria</code>) udostępnia Michał Dudko / DDK. Kontakt: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Zasady przetwarzania danych opisuje osobna <a href="https://michaldudko.github.io/aria-privacy/">polityka prywatności</a>.</p>
+    <p>Aplikację Aria Noteflow (identyfikator pakietu <code>com.DDK.Aria</code>) udostępnia Michał Dudko / DDK. Kontakt: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Zasady przetwarzania danych opisuje osobna <a href="privacy.html">polityka prywatności</a>.</p>
 
     <h2>2. Akceptacja regulaminu</h2>
     <p>Instalując lub używając aplikacji, użytkownik potwierdza, że zapoznał się z regulaminem i go akceptuje. Jeśli użytkownik nie akceptuje warunków, nie powinien korzystać z aplikacji.</p>
@@ -75,14 +106,14 @@
     <p>Regulamin podlega prawu polskiemu. Spory będą rozstrzygane zgodnie z powszechnie obowiązującymi przepisami, w szczególności ochrony konsumentów, jeśli mają zastosowanie do użytkownika.</p>
   </article>
 
-  <article id="terms-en" lang="en" hidden>
+  <article data-lang="en" lang="en" hidden>
     <h1>Aria Noteflow Terms of Use</h1>
     <p class="meta">Last updated: August 22, 2026</p>
     <p class="card">Aria Noteflow is a local sheet-music reader and music-library organizer for Android. By using the app, you accept the terms below.</p>
     <p class="note"><strong>If language versions differ, the Polish version is binding and controlling.</strong></p>
 
     <h2>1. Developer and contact</h2>
-    <p>Aria Noteflow (package identifier <code>com.DDK.Aria</code>) is provided by Michał Dudko / DDK. Contact: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Data handling is described in a separate <a href="https://michaldudko.github.io/aria-privacy/">privacy policy</a>.</p>
+    <p>Aria Noteflow (package identifier <code>com.DDK.Aria</code>) is provided by Michał Dudko / DDK. Contact: <a href="mailto:kontakt@fieldmaster.pl">kontakt@fieldmaster.pl</a>. Data handling is described in a separate <a href="privacy.html">privacy policy</a>.</p>
 
     <h2>2. Acceptance of these terms</h2>
     <p>By installing or using the app, you confirm that you have read and accept these terms. If you do not accept them, please do not use the app.</p>
@@ -111,28 +142,40 @@
     <h2>10. Governing law</h2>
     <p>These terms are governed by Polish law. Disputes will be resolved under generally applicable law, including consumer-protection law where it applies to the user.</p>
   </article>
+
+  <hr>
+  <footer>
+    <p class="note">
+      <a href="index.html">
+        <span data-lang="pl">Start</span><span data-lang="en" hidden>Home</span>
+      </a>
+      ·
+      <a href="privacy.html">
+        <span data-lang="pl">Polityka prywatności</span><span data-lang="en" hidden>Privacy Policy</span>
+      </a>
+    </p>
+  </footer>
 </main>
 <script>
   (() => {
-    const polishTerms = document.getElementById('terms-pl');
-    const englishTerms = document.getElementById('terms-en');
-    const polishButton = document.getElementById('language-pl');
-    const englishButton = document.getElementById('language-en');
+    const plButton = document.getElementById('language-pl');
+    const enButton = document.getElementById('language-en');
 
     function selectLanguage(language) {
       const english = language === 'en';
-      polishTerms.hidden = english;
-      englishTerms.hidden = !english;
-      polishButton.setAttribute('aria-pressed', String(!english));
-      englishButton.setAttribute('aria-pressed', String(english));
+      document.querySelectorAll('[data-lang]').forEach((element) => {
+        element.hidden = element.dataset.lang !== language;
+      });
+      plButton.setAttribute('aria-pressed', String(!english));
+      enButton.setAttribute('aria-pressed', String(english));
       document.documentElement.lang = english ? 'en' : 'pl';
       document.title = english
         ? 'Terms of Use — Aria Noteflow'
         : 'Regulamin — Aria Noteflow';
     }
 
-    polishButton.addEventListener('click', () => selectLanguage('pl'));
-    englishButton.addEventListener('click', () => selectLanguage('en'));
+    plButton.addEventListener('click', () => selectLanguage('pl'));
+    enButton.addEventListener('click', () => selectLanguage('en'));
   })();
 </script>
 </body>
